@@ -29,7 +29,7 @@ app.use(express.urlencoded({extended: true, limit: "10mb"}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-	origin: "https://fsdfoods.up.railway.app/",
+	origin: "*",
 	credentials: true
 }));
 
