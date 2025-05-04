@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import {create} from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-const API_END_POINT = "https://fsdfoods.up.railway.app/api/v1/restaurant";
+const API_END_POINT = "http://localhost:3000/api/v1/restaurant";
 axios.defaults.withCredentials = true;
 
 
@@ -45,9 +45,9 @@ export const useRestaurantStore = create<RestaurantState>()(persist((set, get) =
 	},
 
 	getRestaurant: async () => {
-		try {
+		try { 
 			set({loading: true});
-			const response = await axios.get(`${API_END_POINT}/`);
+			const response = await axios.get(`${API_END_POINT}/`);  
 			if(response.data.success) {
 				set({loading: false, restaurant: response.data.restaurant});
 			}

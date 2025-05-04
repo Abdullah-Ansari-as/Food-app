@@ -46,8 +46,8 @@ const createRestaurant = async (req: Request, res: Response): Promise<void> => {
 }
 
 const getRestaurant = async (req: Request, res: Response): Promise<void> => {
-	try {
-		const restaurant = await Restaurant.findOne({user: req.id}).populate("menus");
+	try { 
+		const restaurant = await Restaurant.findOne({user: req.id}).populate("menus"); 
 		if(!restaurant) {
 			return res.status(404).json({
 				success: false,
@@ -63,7 +63,7 @@ const getRestaurant = async (req: Request, res: Response): Promise<void> => {
 	
 	} catch (error) {
 		console.log(error);
-		return res.status(500).json({message: "Internal server error"}) as unknown as void;
+		return res.status(500).json({message: "Internallll server error"}) as unknown as void;
 	}
 }
 
@@ -167,7 +167,7 @@ const searchRestaurant = async (req: Request, res: Response): Promise<void> => {
         const selectedCuisines = (req.query.selectedCuisines as string || "").split(",").filter(cuisine => cuisine);
         const query: any = {};
         // basic search based on searchText (name ,city, country)
-        // console.log(selectedCuisines);
+        // console.log(searchText);
 
         
         if (searchText) {

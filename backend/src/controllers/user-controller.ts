@@ -65,7 +65,7 @@ const signup = async (req: Request, res: Response): Promise<void> => {
 
 const login = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { email, password } = req.body;
+        const { email, password } = req.body; 
 
         const user = await User.findOne({ email });
         if (!user) {
@@ -221,7 +221,7 @@ const resetpassword = async (req: Request, res: Response): Promise<void> => {
 const checkAuth = async (req: AuthRequest, res: Response): Promise<void> => {
 	try {
 		const userId = req.id;
-		const user = await User.findById(userId).select("-password");
+		const user = await User.findById(userId).select("-password"); 
 		if(!user) {
 			return res.status(404).json({
 				success: false,

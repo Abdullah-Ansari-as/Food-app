@@ -62,3 +62,5 @@ app.listen(PORT, () => {
 
 
     // "dev": "ts-node-dev --respawn --transpile-only backend/src/index.ts"
+	
+	 // "dev": "ts-node-dev --project tsconfig.json src/index.ts",
