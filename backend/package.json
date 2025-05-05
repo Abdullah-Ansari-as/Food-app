@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": { 
-    "dev": "ts-node-dev --project backend/tsconfig.json backend/src/index.ts",
-    "stripe": "stripe listen --forword-to localhost:3000/api/v1/order/webhook",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "ts-node-dev --project backend/tsconfig.json backend/src/index.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
   },
   "keywords": [],
   "author": "",

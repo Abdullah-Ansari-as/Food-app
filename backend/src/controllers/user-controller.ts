@@ -152,7 +152,7 @@ const logout = async (_: Request, res: Response): Promise<void> => {
 
 const forgotPassword = async (req: Request, res: Response): Promise<void> => {
 	try {
-		const {email} = req.body;
+		const {email} = req.body; 
 		const user = await User.findOne({email});
 		if(!user) {
 			return res.status(400).json({
@@ -244,6 +244,7 @@ const updateProfile = async (req: AuthRequest, res: Response): Promise<void> => 
 	try {
 		const userId = req.id;
 		const {fullname, profile, address, city, country, profilePicture} = req.body;
+		// console.log(userId)
 		
 		// upload image on cloudinary 
 		let cloudResponse: any; 
@@ -262,7 +263,7 @@ const updateProfile = async (req: AuthRequest, res: Response): Promise<void> => 
 
 	} catch (error) {
 		console.log(error);
-        return res.status(500).json({ message: "Internal server error" })as unknown as void;
+        return res.status(500).json({ message: "Internnnal server error" })as unknown as void;
 	}
 }
 

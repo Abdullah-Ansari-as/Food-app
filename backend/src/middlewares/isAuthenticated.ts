@@ -11,15 +11,15 @@ declare global {
 
 export const isAuthenticated = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-        const token = req.cookies.token;
+        const token = req.cookies.token; 
         if (!token) {
             return res.status(401).json({
                 success: false,
                 message: "User not authenticated"
             }) as unknown as void;
         }
-        // verify the toekn
-        const decode = jwt.verify(token, process.env.SECRET_KEY!) as jwt.JwtPayload;
+        // verify the toekn 
+        const decode = jwt.verify(token, process.env.TOKEN_SECRET_KEY!) as jwt.JwtPayload; 
         // check is decoding was successfull
         if (!decode) {
             return res.status(401).json({
