@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Response, Request } from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/connectDB";
 dotenv.config();
@@ -32,6 +32,10 @@ app.use(cors({
 	origin: `${process.env.FRONTEND_URL}`,
 	credentials: true
 }));
+
+app.get("/", (req: Request, res: Response) => {
+	res.send("welcome to FsdFoods")
+})
 
 // all api's
 app.use("/api/v1/user", userRoutes);
