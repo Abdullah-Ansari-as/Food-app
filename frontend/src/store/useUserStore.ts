@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { UserState } from "@/types/userTypes";
 import { useCartStore } from "./userCartStore";
 
-const API_END_POINT = "http://localhost:3000/api/v1/user"
+const API_END_POINT = `${import.meta.env.VITE_BACKEND_API_URL}/api/v1/user`
 axios.defaults.withCredentials = true;
 
 

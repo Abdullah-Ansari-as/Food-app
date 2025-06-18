@@ -72,16 +72,26 @@ const Navbar = () => {
                         >
                             Home
                         </NavLink>
-                        <NavLink to="/profile" className={({ isActive }) =>
+                        <NavLink
+                            to="/profile"
+                            className={({ isActive }) =>
                                 isActive
                                     ? "underline dark:text-gray-100"
                                     : "dark:text-gray-300"
-                            }>Profile</NavLink>
-                        <NavLink to="/order/status" className={({ isActive }) =>
+                            }
+                        >
+                            Profile
+                        </NavLink>
+                        <NavLink
+                            to="/order/status"
+                            className={({ isActive }) =>
                                 isActive
                                     ? "underline dark:text-gray-100"
                                     : "dark:text-gray-300"
-                            }>Order</NavLink>
+                            }
+                        >
+                            Order
+                        </NavLink>
 
                         {user?.admin && (
                             <Menubar>
@@ -141,15 +151,17 @@ const Navbar = () => {
                                 </Button>
                             )}
                         </Link>
-                        <div>
-                            <Avatar>
-                                <AvatarImage
-                                    src={user?.profilePicture}
-                                    alt="Profile_photo"
-                                />
-                                <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-                        </div>
+                        <Link to="/profile">
+                            <div>
+                                <Avatar>
+                                    <AvatarImage
+                                        src={user?.profilePicture}
+                                        alt="Profile_photo"
+                                    />
+                                    <AvatarFallback>CN</AvatarFallback>
+                                </Avatar>
+                            </div>
+                        </Link>
                         <div>
                             {loading ? (
                                 <Button
@@ -182,10 +194,12 @@ const Navbar = () => {
 export default Navbar;
 
 const MobileNavbar = () => {
+
     const { user, loading, logout } = useUserStore();
     const { cart } = useCartStore();
     const [open, setOpen] = useState<boolean>(false);
     const { setTheme } = useThemeStore();
+
     return (
         <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -275,7 +289,8 @@ const MobileNavbar = () => {
                     )}
                 </SheetDescription>
                 <SheetFooter>
-                    <div className="flex flex-row items-center gap-2">
+                    <Link to="/profile" onClick={() => setOpen(false)}>
+                        <div className="flex flex-row items-center gap-2">
                         <Avatar>
                             <AvatarImage
                                 src={user?.profilePicture}
@@ -285,6 +300,7 @@ const MobileNavbar = () => {
                         </Avatar>
                         <h1 className="font-bold">Abdullah Ansari</h1>
                     </div>
+                    </Link>
 
                     <SheetClose asChild>
                         {loading ? (

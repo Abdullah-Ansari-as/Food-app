@@ -48,8 +48,9 @@ const Signup = () => {
 	return (
 		<div className="flex items-center justify-center min-h-screen">
 			<form onSubmit={HandleFormSubmit} className="md:p-8 w-full max-w-md md:border border-gray-200 mx-4 rounded-lg">
-				<div className="mb-4 flex items-center justify-center">
+				<div className="mb-4 flex items-center justify-center flex-col">
 					<h1 className="font-bold text-2xl">FsdFoods</h1>
+					<p className="text-sm md:text-base">Please Enter a valid Email Address for SignUp</p>
 				</div>
 
 				<div className="mb-4">
