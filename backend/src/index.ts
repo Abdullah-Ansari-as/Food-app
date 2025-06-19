@@ -11,12 +11,9 @@ import menuRoutes from "./routes/menu-routes";
 import orderRoutes from "./routes/order-routes"
 // import path from "path"; 
 
-
-
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-
  
 
 // const Dirname = path.resolve();
@@ -32,6 +29,8 @@ app.use(cors({
 	origin: `${process.env.FRONTEND_URL}`,
 	credentials: true
 }));
+
+connectDB();
 
 app.get("/", (req: Request, res: Response) => {
 	res.send("welcome to FsdFoods")
@@ -59,7 +58,6 @@ app.use("/api/v1/order", orderRoutes);
 
 
 app.listen(PORT, () => {
-	connectDB();
 	console.log(`server is running on port ${PORT}`)
 });
 
